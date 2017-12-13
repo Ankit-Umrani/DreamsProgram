@@ -1,0 +1,33 @@
+__author__ = 'ankit'
+
+class BankAccount:
+    def __init__(self,CustomerFirstName,CustomerMiddleName,CustomerLastName,DOB,account_type,amount):
+        self.CustomerFirstName = CustomerFirstName
+        self.CustomerMiddleName = CustomerMiddleName
+        self.CustomerLastname = CustomerLastName
+        self.DOB = DOB
+        self.account_type = account_type
+        self.amount = amount
+
+    def deposit(self, deposit_amount):
+        self.amount += deposit_amount
+        print("{} amount deposited in your {} account, your current balance is {}Rs".format(deposit_amount,self.account_type,self.amount))
+
+    def withdraw(self,withdraw_amount):
+        if withdraw_amount > self.amount:
+            print("Withdraw amount is more than available amount. Your current balance is {}Rs, transaction declined".format(self.amount))
+        else:
+            self.amount -= withdraw_amount
+            print("{} amount withdrawn from your {} account, your current balance is {}Rs".format(withdraw_amount,self.account_type,self.amount))
+
+    def __str__ (self):
+        return "{}:{}Rs".format(self.account_type,self.amount)
+
+
+
+customer = BankAccount("Ankit","Mahesh","Umrani","30101992","Savings",10000000)
+
+print(customer)
+
+customer.deposit(300000)
+customer.withdraw(20300)
