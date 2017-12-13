@@ -1,0 +1,70 @@
+__author__ = 'ankit'
+
+
+class Fighter:
+    def __init__(self, name):
+        self.name = name
+        self.health = 100
+        self.damage = 10
+        self.heal = 5
+        self.superheal = 50
+        self.max = 100
+
+    def punch(self, enemy):
+        enemy.health -= self.damage
+        print("{} punched you".format(self.name))
+
+    def kick(self, enemy):
+        enemy.health -= self.damage + 3
+        print("{} kicked you hard!".format(self.name))
+
+    def powermove(self, enemy):
+        enemy.health -= 20
+        print("{} wake up!, {} is hitting you hard!!!!".format(enemy.name, self.name))
+
+    def selfheal(self):
+        self.health += self.health
+
+    def selfsuperheal(self):
+        self.health += self.superheal
+        print("{} you healed by 50".format(self.name))
+
+    def __str__(self):
+        return "{}:{} Percent".format(self.name, self.health)
+
+
+player1 = Fighter("Ankit")
+player2 = Fighter("Dmon")
+
+print(player1)
+print(player2)
+
+player1.punch(player2)
+print(player2)
+
+player2.punch(player1)
+print(player1)
+
+player1.kick(player2)
+print(player2)
+
+player2.kick(player1)
+print(player1)
+
+player1.powermove(player2)
+print(player2)
+
+player2.powermove(player1)
+print(player1)
+
+player1.punch(player2)
+print(player2)
+
+player2.punch(player1)
+print(player1)
+
+player1.selfsuperheal()
+player2.selfsuperheal()
+
+print(player1)
+print(player2)
